@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -36,6 +36,10 @@ def dawiz():
 </body>
 </html>"""
 
+@app.route('/image_mars/')
+def mars():
+    return render_template('index.html', filename=url_for('static', filename='img/1.jpeg'))
+
 
 @app.route('/promotion/')
 def recl():
@@ -57,9 +61,6 @@ def recl():
 </body>
 </html>"""
 
-
-app.add_url_rule('/', name)
-app.add_url_rule('/index/', dawiz)
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
