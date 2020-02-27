@@ -36,9 +36,16 @@ def dawiz():
 </body>
 </html>"""
 
+
 @app.route('/image_mars/')
 def mars():
     return render_template('index.html', filename=url_for('static', filename='img/1.jpeg'))
+
+
+@app.route('/promotion_image/')
+def recl_2():
+    print(url_for('static', filename='css/style.css'))
+    return render_template('2.html', filename=url_for('static', filename='img/1.jpeg'), style=url_for('static', filename='css/style.css'))
 
 
 @app.route('/promotion/')
@@ -63,4 +70,5 @@ def recl():
 
 
 if __name__ == '__main__':
+    print('http://127.0.0.1:8080/promotion_image')
     app.run(port=8080, host='127.0.0.1')
