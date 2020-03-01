@@ -69,6 +69,11 @@ def recl():
 </html>"""
 
 
+@app.route('/astronaut_selection/')
+def ancete():
+    return render_template('anceta.html', style=url_for('static', filename='css/style.css'))
+
+
 if __name__ == '__main__':
-    print('http://127.0.0.1:8080/promotion_image')
+    print('http://127.0.0.1:8080/astronaut_selection')
     app.run(port=8080, host='127.0.0.1')
