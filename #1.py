@@ -74,6 +74,11 @@ def ancete():
     return render_template('anceta.html', style=url_for('static', filename='css/style.css'))
 
 
+@app.route('/choice/<planet_name>/')
+def choise(**kwargs):
+    return render_template('choise.html', style=url_for('static', filename='css/style.css'), planet=kwargs['planet_name'])
+
+
 if __name__ == '__main__':
-    print('http://127.0.0.1:8080/astronaut_selection')
+    print('http://127.0.0.1:8080/choice/mars/')
     app.run(port=8080, host='127.0.0.1')

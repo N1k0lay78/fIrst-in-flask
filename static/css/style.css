@@ -1,13 +1,22 @@
 .tmp1 {
-    background: #f44;
+	display: inline;
+	background-color: #f99;
+	box-shadow: -10px 0 0 #f99, 10px 0 0 #f99;
+	padding: 0px 0;
 }
 
 .tmp2 {
-    background: #4f4;
+    display: inline;
+	background-color: #9f9;
+	box-shadow: -10px 0 0 #9f9, 10px 0 0 #9f9;
+	padding: 0px 0;
 }
 
 .tmp3 {
-    background: #44f;
+    display: inline;
+	background-color: #99f;
+	box-shadow: -10px 0 0 #99f, 10px 0 0 #99f;
+	padding: 0px 0;
 }
 
 form.login_form {
