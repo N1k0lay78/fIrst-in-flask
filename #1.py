@@ -79,6 +79,11 @@ def choise(**kwargs):
     return render_template('choise.html', style=url_for('static', filename='css/style.css'), planet=kwargs['planet_name'])
 
 
+@app.route('/results/<nickname>/<int:level>/<float:rating>')
+def result(**kwargs):
+    return render_template('result.html', style=url_for('static', filename='css/style.css'), **kwargs)
+
+
 if __name__ == '__main__':
-    print('http://127.0.0.1:8080/choice/mars/')
+    print('http://127.0.0.1:8080/results/nik/3/60.2')
     app.run(port=8080, host='127.0.0.1')

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат {{nickname}}: {{rating}}</title>
+    <link rel="stylesheet" href={{style}}>
+</head>
+<body class="fon-color">
+<div align="center">
+    <div>
+        <h1>Результат отбора</h1>
+    </div>
+    <div>
+        <h2>Претендента на участие в мисии {{nickname}}</h2>
+    </div>
+    <div>
+        <h2 class="tmp2">Поздравляем! ваш рейтинг после {{level}} этапа отбора</h2>
+    </div>
+    <div>
+        {% if rating > 80 %}
+        <h2 class="tmp2">Составляет {{rating}}!</h2>
+        {% elif rating > 50 %}
+        <h2 class="tmp3">Составляет {{rating}}!</h2>
+        {% else %}
+        <h2 class="tmp1">Составляет {{rating}}!</h2>
+        {% endif %}
+    </div>
+    <div>
+        <h2>Желаем удачи!</h2>
+    </div>
+</div>
+</body>
+</html>
