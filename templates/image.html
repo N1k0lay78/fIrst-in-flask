@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Отбор остаранфтов</title>
+    <link rel="stylesheet" href={{style}}>
+</head>
+<body>
+<div align="center">
+    <form class="login_form" method="post" enctype="multipart/form-data">
+        <div>
+            <h2>Анкета претендента</h2>
+            <h3>На участие в мисии</h3>
+        </div>
+        <div class="text">
+            <input type="file" name="file" accept="image/*">
+        </div>
+        <div class="text">
+            <img src={{filename}} alt="здесь должна была быть картинка, но не нашлась" height="400" width="600">
+        </div>
+        <div class="text">
+            <button class="button" type="submit" name="scan">Отправить!</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

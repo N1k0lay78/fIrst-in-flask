@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
@@ -45,7 +45,8 @@ def mars():
 @app.route('/promotion_image/')
 def recl_2():
     print(url_for('static', filename='css/style.css'))
-    return render_template('2.html', filename=url_for('static', filename='img/1.jpeg'), style=url_for('static', filename='css/style.css'))
+    return render_template('2.html', filename=url_for('static', filename='img/1.jpeg'),
+                           style=url_for('static', filename='css/style.css'))
 
 
 @app.route('/promotion/')
@@ -76,7 +77,8 @@ def ancete():
 
 @app.route('/choice/<planet_name>/')
 def choise(**kwargs):
-    return render_template('choise.html', style=url_for('static', filename='css/style.css'), planet=kwargs['planet_name'])
+    return render_template('choise.html', style=url_for('static', filename='css/style.css'),
+                           planet=kwargs['planet_name'])
 
 
 @app.route('/results/<nickname>/<int:level>/<float:rating>')
@@ -84,6 +86,19 @@ def result(**kwargs):
     return render_template('result.html', style=url_for('static', filename='css/style.css'), **kwargs)
 
 
+@app.route('/load_photo/', methods=['POST', 'GET'])
+def image():
+    if request.method == 'GET':
+        return render_template('image.html', filename=url_for('static', filename='img/2.png'),
+                               style=url_for('static', filename='css/style.css'))
+    elif request.method == 'POST':
+        f = request.files['file']
+        with open(url_for('static', filename='img/2.png')[1:], 'wb') as fr:
+            fr.write(f.read())
+        return render_template('image.html', filename=url_for('static', filename='img/2.png'),
+                               style=url_for('static', filename='css/style.css'))
+
+
 if __name__ == '__main__':
-    print('http://127.0.0.1:8080/results/nik/3/60.2')
-    app.run(port=8080, host='127.0.0.1')
+    print('http://127.0.0.1:8084/load_photo/')
+    app.run(port=8084, host='127.0.0.1')
