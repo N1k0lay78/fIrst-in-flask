@@ -99,6 +99,11 @@ def image():
                                style=url_for('static', filename='css/style.css'))
 
 
+@app.route('/images/')
+def images():
+    return render_template('images.html', filename1=url_for('static', filename='img/1.jpg'), filename2=url_for('static', filename='img/2.jpg'), filename3=url_for('static', filename='img/3.jpg'))
+
+
 if __name__ == '__main__':
-    print('http://127.0.0.1:8084/load_photo/')
-    app.run(port=8084, host='127.0.0.1')
+    print('http://127.0.0.1:8085/images/')
+    app.run(port=8085, host='127.0.0.1')
